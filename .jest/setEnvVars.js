@@ -1,15 +1,15 @@
-process.env.ENVIRONMENT = 'profserv02'
-process.env.X_AUTH_TOKEN = 'a72af9e7-3ad7-40d6-bf96-05bfcf308095'
+process.env.ENVIRONMENT = ''
+process.env.X_AUTH_TOKEN = ''
 
 // ================================================
 //  SITE MANAGEMENT API TESTS
 // ================================================
-process.env.PROJECT_ID = 'vfX6M'
-process.env.CHANNEL_ID = 'bloomreach-nucleus'
-process.env.COMPONENT_GROUP = 'test-component-group'
+// process.env.PROJECT_ID = ''
+// process.env.CHANNEL_ID = ''
+// process.env.COMPONENT_GROUP = ''
 // # process.env.COMPONENT=
 // # process.env.ROUTE=
-process.env.LAYOUT = 'test-one-column'
+// process.env.LAYOUT = ''
 // process.env.MENU=
 
 // ================================================
@@ -28,4 +28,4 @@ process.env.LAYOUT = 'test-one-column'
 // ================================================
 // CONTENT TYPE MANAGEMENT API TESTS
 // ================================================
-process.env.CONTENT_TYPE = 'TestContentType'
+// process.env.CONTENT_TYPE = ''

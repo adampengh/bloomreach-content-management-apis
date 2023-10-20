@@ -5,8 +5,15 @@ const DELIVERY_CHANNEL_API_PATH = 'delivery/site/v1';
 
 /**
  * Get all core channels from Delivery API
+ * @group Site Management API
  * @param {string} environment
  * @returns
+ * @example
+ * ```ts
+ * getAllCoreChannels(environment)
+ *   .then(response => console.log(response.data))
+ *   .catch(error => console.error(error));
+ * ```
  */
 export const getAllCoreChannels = async (environment: string): AxiosPromise => {
   const url = `https://${environment}.bloomreach.io/${DELIVERY_CHANNEL_API_PATH}/channels`;
@@ -18,6 +25,7 @@ export const getAllCoreChannels = async (environment: string): AxiosPromise => {
 
 /**
  * Get all channels
+ * @group Site Management API
  * @param {string} environment
  * @param {string} xAuthToken
  * @returns

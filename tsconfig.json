@@ -27,7 +27,7 @@
     "hideGenerator": true,
     "includeVersion": true,
     "internalModule": "Internals",
-    "entryPoints": ["src/index.ts", "src/express/index.ts"],
+    "entryPoints": ["src/index.ts"],
     "cleanOutputDir": true
   }
 }
