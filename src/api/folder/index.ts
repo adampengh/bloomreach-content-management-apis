@@ -2,6 +2,13 @@ import axios, { AxiosPromise } from 'axios';
 
 const FOLDER_API_PATH = 'management/folder/v1';
 
+/**
+ * @category Folder Management API
+ * @param environment
+ * @param xAuthToken
+ * @param folderPath
+ * @param [depth]
+ */
 export const getFolder = async (
   environment: string,
   xAuthToken: string,
@@ -17,6 +24,16 @@ export const getFolder = async (
   return response;
 };
 
+/**
+ * @category Folder Management API
+ * @param environment
+ * @param xAuthToken
+ * @param folderType
+ * @param folderPath
+ * @param displayName
+ * @param [optAllowedDocumentTypes]
+ * @param [optAllowedFolderTypes]
+ */
 export const createOrUpdateFolder = async (
   environment: string,
   xAuthToken: string,

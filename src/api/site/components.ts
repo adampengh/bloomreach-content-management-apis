@@ -2,6 +2,14 @@ import axios, { AxiosPromise } from 'axios';
 
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
+/**
+ * @category Site Management API
+ * @group Components
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ */
 export const getAllComponents = async (
   environment: string,
   xAuthToken: string,
@@ -21,6 +29,15 @@ export const getAllComponents = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Components
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ * @param componentName
+ */
 export const getComponent = async (
   environment: string,
   xAuthToken: string,
@@ -41,6 +58,17 @@ export const getComponent = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Components
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ * @param componentName
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putComponent = async (
   environment: string,
   xAuthToken: string,
@@ -67,6 +95,15 @@ export const putComponent = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Components
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ * @param componentName
+ */
 export const deleteComponent = async (
   environment: string,
   xAuthToken: string,

@@ -2,6 +2,12 @@ import axios, { AxiosPromise } from 'axios';
 
 const EXPORT_API_PATH = 'management/content-import/v1';
 
+/**
+ * @category Content Batch Import API
+ * @param environment
+ * @param xAuthToken
+ * @param operationId
+ */
 export const getImportOperationStatus = async (
   environment: string,
   xAuthToken: string,

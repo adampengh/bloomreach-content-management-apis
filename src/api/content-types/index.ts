@@ -2,6 +2,12 @@ import axios, { AxiosPromise } from 'axios';
 
 const CONTENT_TYPE_API_PATH = 'management/contenttypes/v1';
 
+/**
+ * @category Content Type Management API
+ * @param environment
+ * @param xAuthToken
+ * @param [projectId]
+ */
 export const getAllContentTypes = async (
   environment: string,
   xAuthToken: string,
@@ -16,6 +22,13 @@ export const getAllContentTypes = async (
   return response;
 };
 
+/**
+ * @category Content Type Management API
+ * @param environment
+ * @param xAuthToken
+ * @param contentTypeName
+ * @param [projectId]
+ */
 export const getContentType = async (
   environment: string,
   xAuthToken: string,
@@ -35,6 +48,14 @@ export const getContentType = async (
   return response;
 };
 
+/**
+ * @category Content Type Management API
+ * @param environment
+ * @param xAuthToken
+ * @param contentTypeName
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putContentType = async (
   environment: string,
   xAuthToken: string,
@@ -57,13 +78,20 @@ export const putContentType = async (
   return response;
 };
 
+/**
+ * @category Content Type Management API
+ * @param environment
+ * @param xAuthToken
+ * @param contentTypeName
+ */
 export const deleteContentType = async (
   environment: string,
   xAuthToken: string,
-  contentType: string,
+  contentTypeName: string,
 ): AxiosPromise => {
-  contentType = contentType.replace(':', '-');
-  const response = await axios(`/api/contenttypes/${contentType}?environment=${environment}`, {
+  const contentType = contentTypeName.replace(':', '-');
+  const url = `https://${environment}.bloomreach.io/${CONTENT_TYPE_API_PATH}/development/${contentType}`;
+  const response = await axios(url, {
     method: 'DELETE',
     headers: {
       'x-auth-token': xAuthToken,

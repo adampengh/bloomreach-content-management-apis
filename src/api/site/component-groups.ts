@@ -4,6 +4,8 @@ const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
 /**
  * Get all component groups
+ * @category Site Management API
+ * @group Component Groups
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -27,6 +29,14 @@ export const getAllComponentGroups = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Component Groups
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ */
 export const getComponentGroup = async (
   environment: string,
   xAuthToken: string,
@@ -46,6 +56,15 @@ export const getComponentGroup = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Component Groups
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ * @param data
+ */
 export const createComponentGroup = async (
   environment: string,
   xAuthToken: string,
@@ -67,6 +86,14 @@ export const createComponentGroup = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Component Groups
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param componentGroup
+ */
 export const deleteComponentGroup = async (
   environment: string,
   xAuthToken: string,

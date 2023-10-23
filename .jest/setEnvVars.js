@@ -7,23 +7,23 @@ process.env.X_AUTH_TOKEN = ''
 // process.env.PROJECT_ID = ''
 // process.env.CHANNEL_ID = ''
 // process.env.COMPONENT_GROUP = ''
-// # process.env.COMPONENT=
-// # process.env.ROUTE=
+// process.env.COMPONENT = ''
+// process.env.ROUTE = ''
 // process.env.LAYOUT = ''
-// process.env.MENU=
+// process.env.MENU = ''
 
 // ================================================
 // FOLDER MANAGEMENT API TESTS
 // ================================================
-// process.env.FOLDER_PATH=
+// process.env.FOLDER_PATH = ''
 
 // ================================================
 // CONTENT MANAGEMENT API TESTS
 // ================================================
-// process.env.DOCUMENT_PATH=
-// process.env.PAGE_PATH=
-// process.env.FOLDER_PATH=
-// process.env.RESOURCE_BUNDLE_PATH=
+// process.env.DOCUMENT_PATH = ''
+// process.env.PAGE_PATH = ''
+// process.env.FOLDER_PATH = ''
+// process.env.RESOURCE_BUNDLE_PATH = ''
 
 // ================================================
 // CONTENT TYPE MANAGEMENT API TESTS

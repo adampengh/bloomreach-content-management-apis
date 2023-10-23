@@ -2,6 +2,13 @@ import axios, { AxiosPromise } from 'axios';
 
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
+/**
+ * @category Site Management API
+ * @group Routes
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ */
 export const getAllRoutes = async (
   environment: string,
   xAuthToken: string,
@@ -19,6 +26,14 @@ export const getAllRoutes = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Routes
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param route
+ */
 export const getRoute = async (
   environment: string,
   xAuthToken: string,
@@ -37,6 +52,16 @@ export const getRoute = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Routes
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param route
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putRoute = async (
   environment: string,
   xAuthToken: string,
@@ -59,6 +84,14 @@ export const putRoute = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Routes
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param route
+ */
 export const deleteRoute = async (
   environment: string,
   xAuthToken: string,

@@ -2,6 +2,15 @@ import axios, { AxiosPromise } from 'axios';
 
 const CONTENT_API_PATH = 'management/content/v1';
 
+/**
+ * @category Content Management API
+ * @group Page
+ * @param environment
+ * @param xAuthToken
+ * @param channel
+ * @param path
+ * @param projectId
+ */
 export const getPage = async (
   environment: string,
   xAuthToken: string,
@@ -21,6 +30,17 @@ export const getPage = async (
   return response;
 };
 
+/**
+ * @category Content Management API
+ * @group Page
+ * @param environment
+ * @param xAuthToken
+ * @param projectId
+ * @param channel
+ * @param path
+ * @param pageData
+ * @param [optXResourceVersion]
+ */
 export const putPage = async (
   environment: string,
   xAuthToken: string,
@@ -38,9 +58,7 @@ export const putPage = async (
         'x-auth-token': xAuthToken,
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        ...(optXResourceVersion && {
-          'x-resource-version': optXResourceVersion,
-        }),
+        ...(optXResourceVersion && { 'x-resource-version': optXResourceVersion }),
       },
       data: pageData,
     },

@@ -2,6 +2,13 @@ import axios, { AxiosPromise } from 'axios';
 
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ */
 export const getAllMenus = async (
   environment: string,
   xAuthToken: string,
@@ -19,6 +26,14 @@ export const getAllMenus = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ */
 export const getMenu = async (
   environment: string,
   xAuthToken: string,
@@ -37,6 +52,16 @@ export const getMenu = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putMenu = async (
   environment: string,
   xAuthToken: string,
@@ -59,6 +84,14 @@ export const putMenu = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ */
 export const getMenuItems = async (
   environment: string,
   xAuthToken: string,
@@ -77,6 +110,16 @@ export const getMenuItems = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putMenuItems = async (
   environment: string,
   xAuthToken: string,
@@ -99,6 +142,14 @@ export const putMenuItems = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ */
 export const getMenuProperties = async (
   environment: string,
   xAuthToken: string,
@@ -117,6 +168,16 @@ export const getMenuProperties = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putMenuProperties = async (
   environment: string,
   xAuthToken: string,
@@ -139,6 +200,14 @@ export const putMenuProperties = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Menus
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param menu
+ */
 export const deleteMenu = async (
   environment: string,
   xAuthToken: string,

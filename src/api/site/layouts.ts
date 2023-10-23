@@ -2,6 +2,13 @@ import axios, { AxiosPromise } from 'axios';
 
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
+/**
+ * @category Site Management API
+ * @group Layouts
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ */
 export const getAllLayouts = async (
   environment: string,
   xAuthToken: string,
@@ -19,6 +26,14 @@ export const getAllLayouts = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Layouts
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param layout
+ */
 export const getLayout = async (
   environment: string,
   xAuthToken: string,
@@ -37,6 +52,16 @@ export const getLayout = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Layouts
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param layout
+ * @param data
+ * @param [optXResourceVersion]
+ */
 export const putLayout = async (
   environment: string,
   xAuthToken: string,
@@ -59,6 +84,14 @@ export const putLayout = async (
   return response;
 };
 
+/**
+ * @category Site Management API
+ * @group Layouts
+ * @param environment
+ * @param xAuthToken
+ * @param channelId
+ * @param layout
+ */
 export const deleteLayout = async (
   environment: string,
   xAuthToken: string,

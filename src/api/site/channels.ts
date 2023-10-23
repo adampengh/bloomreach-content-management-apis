@@ -5,7 +5,8 @@ const DELIVERY_CHANNEL_API_PATH = 'delivery/site/v1';
 
 /**
  * Get all core channels from Delivery API
- * @group Site Management API
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @returns
  * @example
@@ -25,7 +26,8 @@ export const getAllCoreChannels = async (environment: string): AxiosPromise => {
 
 /**
  * Get all channels
- * @group Site Management API
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @returns
@@ -48,6 +50,8 @@ export const getAllChannels = async (
 
 /**
  * Get channel
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -72,6 +76,8 @@ export const getChannel = async (
 
 /**
  * Put channel
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -106,6 +112,8 @@ export const putChannel = async (
 
 /**
  * Add channel to project
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} projectId
@@ -136,6 +144,8 @@ export const addChannelToProject = async (
 
 /**
  * Deletes a channel branch
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -160,6 +170,8 @@ export const deleteChannelBranch = async (
 
 /**
  * Get channel fieldgroups
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -184,12 +196,14 @@ export const getChannelFieldGroups = async (
 
 /**
  * Put channel fieldgroups
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
  * @param {string} fieldGroup
  * @param {object} data
- * @param {string=} opt_xResourceVersion
+ * @param {string} [optXResourceVersion]
  * @returns
  */
 export const putChannelFieldGroups = async (
@@ -208,9 +222,7 @@ export const putChannelFieldGroups = async (
         'x-auth-token': xAuthToken,
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        ...(optXResourceVersion && {
-          'x-resource-version': optXResourceVersion,
-        }),
+        ...(optXResourceVersion && { 'x-resource-version': optXResourceVersion }),
       },
       data,
     },
@@ -220,6 +232,8 @@ export const putChannelFieldGroups = async (
 
 /**
  * Delete channel fieldgroups
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -246,6 +260,8 @@ export const deleteChannelFieldGroups = async (
 
 /**
  * Get channel parameters
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -270,6 +286,8 @@ export const getChannelParameters = async (
 
 /**
  * Get channel parameter
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
@@ -296,12 +314,14 @@ export const getChannelParameter = async (
 
 /**
  * Put channel parameter
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
  * @param {string} parameter
  * @param {object} data
- * @param {string=} opt_xResourceVersion
+ * @param {string} [optXResourceVersion]
  * @returns
  */
 export const putChannelParameter = async (
@@ -347,6 +367,8 @@ export const putChannelParameter = async (
 
 /**
  * Delete channel parameter
+ * @category Site Management API
+ * @group Channel
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} channelId
