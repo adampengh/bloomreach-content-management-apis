@@ -42,8 +42,7 @@ const sourceChannelId = 'reference-spa-v1a2B';
 // Target environment variables
 const targetEnvironment = 'customer';
 const targetXAuthToken = 'abcdefgh-abcd-abcd-abcd-abcdefghijkl';
-const targetChannelId = 'reference-spa-vA1b2'
-;
+const targetChannelId = 'reference-spa-vA1b2';
 
 /**
  * Check if component exists in Target Channel

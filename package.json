@@ -2,6 +2,10 @@
   "name": "bloomreach-content-management-apis",
   "version": "1.0.2",
   "description": "A library of functions for calling Bloomreach Content SaaS Management APIs",
+  "keywords": [
+    "bloomreach",
+    "content management"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adampengh/bloomreach-content-management-apis.git"
