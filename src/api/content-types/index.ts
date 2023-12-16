@@ -3,10 +3,17 @@ import axios, { AxiosPromise } from 'axios';
 const CONTENT_TYPE_API_PATH = 'management/contenttypes/v1';
 
 /**
+ * Get All Content Types
  * @category Content Type Management API
- * @param environment
- * @param xAuthToken
- * @param [projectId]
+ * @param {string} environment
+ * @param {string} xAuthToken
+ * @param {string} [projectId] 'core' or 'development'
+ * @example
+ * ```ts
+ * getAllContentTypes(environment, xAuthToken, 'development')
+ *   .then(response => console.log(response.data))
+ *   .catch(error => console.error(error));
+ * ```
  */
 export const getAllContentTypes = async (
   environment: string,
@@ -23,11 +30,18 @@ export const getAllContentTypes = async (
 };
 
 /**
+ * Get a Content Type
  * @category Content Type Management API
- * @param environment
- * @param xAuthToken
- * @param contentTypeName
- * @param [projectId]
+ * @param {string} environment
+ * @param {string} xAuthToken
+ * @param {string} contentTypeName
+ * @param {string} [projectId]
+ * @example
+ * ```ts
+ * getContentType(environment, xAuthToken, 'referencespa:banner', 'development')
+ *   .then(response => console.log(response.data))
+ *   .catch(error => console.error(error));
+ * ```
  */
 export const getContentType = async (
   environment: string,
@@ -49,12 +63,19 @@ export const getContentType = async (
 };
 
 /**
+ * Create or Update a Content Type
  * @category Content Type Management API
- * @param environment
- * @param xAuthToken
- * @param contentTypeName
- * @param data
- * @param [optXResourceVersion]
+ * @param {string} environment
+ * @param {string} xAuthToken
+ * @param {string} contentTypeName
+ * @param {object} data
+ * @param {string} [optXResourceVersion]
+ * @example
+ * ```ts
+ * putContentType(environment, xAuthToken, 'referencespa:banner', data)
+ *   .then(response => console.log(response.data))
+ *   .catch(error => console.error(error));
+ * ```
  */
 export const putContentType = async (
   environment: string,
@@ -79,10 +100,17 @@ export const putContentType = async (
 };
 
 /**
+ * Delete a Content Type
  * @category Content Type Management API
- * @param environment
- * @param xAuthToken
- * @param contentTypeName
+ * @param {string} environment
+ * @param {string} xAuthToken
+ * @param {string} contentTypeName
+ * @example
+ * ```ts
+ * deleteContentType(environment, xAuthToken, 'referencespa:banner')
+ *   .then(response => console.log(response.data))
+ *   .catch(error => console.error(error));
+ * ```
  */
 export const deleteContentType = async (
   environment: string,
@@ -95,6 +123,43 @@ export const deleteContentType = async (
     method: 'DELETE',
     headers: {
       'x-auth-token': xAuthToken,
+    },
+  });
+  return response;
+};
+
+/**
+ * Rename a Content Type
+ * @category Content Type Management API
+ * @param {string} environment
+ * @param {string} xAuthToken
+ * @param {string} contentTypeName
+ * @param {string} newName
+ * @param {string} displayName
+ * @example
+* ```ts
+* renameContentType(environment, xAuthToken, 'referencespa:banner')
+*   .then(response => console.log(response.data))
+*   .catch(error => console.error(error));
+* ```
+*/
+export const renameContentType = async (
+  environment: string,
+  xAuthToken: string,
+  contentTypeName: string,
+  newName: string,
+  displayName: string,
+): AxiosPromise => {
+  const contentType = contentTypeName.replace(':', '-');
+  const url = `https://${environment}.bloomreach.io/${CONTENT_TYPE_API_PATH}/development/${contentType}`;
+  const response = await axios(url, {
+    method: 'POST',
+    headers: {
+      'x-auth-token': xAuthToken,
+    },
+    data: {
+      newName,
+      displayName,
     },
   });
   return response;

@@ -1,6 +1,6 @@
 import { createDeveloperProject, deleteDeveloperProject, getAllProjects, getDeveloperProject } from './index';
 
-let projectId = '';
+let projectId = process.env.PROJECT_ID || '';
 
 describe('PROJECT MANAGEMENT API', () => {
   const ENVIRONMENT = process.env.ENVIRONMENT || '';

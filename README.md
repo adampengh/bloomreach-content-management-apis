@@ -1,6 +1,6 @@
 # Bloomreach Content Management APIs
 
-Bloomreach Content Management APIs provides a collection of functions for interacting with the [Bloomreach Content Management APIs]()
+This library provides a collection of functions for interacting with the [Bloomreach Content Management APIs](https://documentation.bloomreach.com/content/reference/management-apis)
 for JavaScript-based applications.
 
 ## Get Started
@@ -32,7 +32,7 @@ The following code snippet demonstrates how to copy a component from one environ
 import { getComponent, putComponent } from 'bloomreach-content-management-apis';
 
 const compontentGroup = 'brx-reference-spa';
-const componentName = 'Reference SPA Content';
+const componentName = 'referencespa-content';
 
 // Source environment variables
 const sourceEnvironment = 'test-customer';

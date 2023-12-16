@@ -5,8 +5,8 @@ const PROJECTS_API_PATH = 'management/projects/v1';
 /**
  * Gets All Developer Projects
  * @category Projects Management API
- * @param {string} environment
- * @param {string} xAuthToken
+ * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+ * @param {string} xAuthToken BrX API Token
  * @param {string} [withSubresources]
  * @example
  * ```ts
@@ -18,9 +18,10 @@ const PROJECTS_API_PATH = 'management/projects/v1';
 export const getAllProjects = async (
   environment: string,
   xAuthToken: string,
-  withSubresources = false,
+  withSubresources?: boolean,
 ): AxiosPromise => {
-  const url = `https://${environment}.bloomreach.io/${PROJECTS_API_PATH}?withSubresources=${withSubresources}`;
+  const includeSubresources = withSubresources ? 'true' : 'false';
+  const url = `https://${environment}.bloomreach.io/${PROJECTS_API_PATH}?withSubresources=${includeSubresources}`;
   const response = await axios(url, {
     method: 'GET',
     headers: {
@@ -34,8 +35,8 @@ export const getAllProjects = async (
 /**
  * Gets a Developer Project by Project ID
  * @category Projects Management API
- * @param {string} environment
- * @param {string} xAuthToken
+ * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+ * @param {string} xAuthToken BrX API Token
  * @param {string} projectId
  * @param {string} [withSubresources]
  * @example
@@ -49,10 +50,11 @@ export const getDeveloperProject = async (
   environment: string,
   xAuthToken: string,
   projectId: string,
-  withSubresources = false,
+  withSubresources?: boolean,
 ): AxiosPromise => {
+  const includeSubresources = withSubresources ? 'true' : 'false';
   // eslint-disable-next-line max-len
-  const url = `https://${environment}.bloomreach.io/${PROJECTS_API_PATH}/${projectId}?withSubresources=${withSubresources}`;
+  const url = `https://${environment}.bloomreach.io/${PROJECTS_API_PATH}/${projectId}?withSubresources=${includeSubresources}`;
   const response = await axios(url, {
     method: 'GET',
     headers: {
@@ -65,8 +67,8 @@ export const getDeveloperProject = async (
 /**
  * Creates a Developer Project
  * @category Projects Management API
- * @param {string} environment
- * @param {string} xAuthToken
+ * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+ * @param {string} xAuthToken BrX API Token
  * @param {string} name
  * @param {boolean} [includeContentTypes]
  * @param {string} [description]
@@ -81,8 +83,8 @@ export const createDeveloperProject = async (
   environment: string,
   xAuthToken: string,
   name: string,
-  includeContentTypes = false,
-  description = '',
+  includeContentTypes?: boolean,
+  description?: string,
 ): AxiosPromise => {
   const response = await axios(`https://${environment}.bloomreach.io/${PROJECTS_API_PATH}/`, {
     method: 'POST',
@@ -92,8 +94,8 @@ export const createDeveloperProject = async (
     },
     data: {
       name,
-      includeContentTypes,
-      description,
+      ...(includeContentTypes && { includeContentTypes }),
+      ...(description && { description }),
     },
   });
   return response;
@@ -102,8 +104,8 @@ export const createDeveloperProject = async (
 /**
  * Updates a Developer Project
  * @category Projects Management API
- * @param {string} environment
- * @param {string} xAuthToken
+ * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+ * @param {string} xAuthToken BrX API Token
  * @param {string} projectId
  * @param {string} name
  * @param {boolean} [includeContentTypes]
@@ -120,8 +122,8 @@ export const updateDeveloperProject = async (
   xAuthToken: string,
   projectId: string,
   name: string,
-  includeContentTypes = false,
-  description = '',
+  includeContentTypes?: boolean,
+  description?: string,
 ): AxiosPromise => {
   const response = await axios(`https://${environment}.bloomreach.io/${PROJECTS_API_PATH}/${projectId}`, {
     method: 'POST',
@@ -132,8 +134,8 @@ export const updateDeveloperProject = async (
     data: {
       id: projectId,
       name,
-      includeContentTypes,
-      description,
+      ...(includeContentTypes && { includeContentTypes }),
+      ...(description && { description }),
     },
   });
   return response;
@@ -147,8 +149,8 @@ export const updateDeveloperProject = async (
 * seen by calling the GET endpoint.<br/>
 * Only users with 'Site Admin' role can run the merge operation.
 * @category Projects Management API
-* @param {string} environment
-* @param {string} xAuthToken
+* @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+* @param {string} xAuthToken BrX API Token
 * @param {string} projectId
 * @param {boolean} [approveAllChanges]
 * @example
@@ -162,7 +164,7 @@ export const mergeDeveloperProject = async (
   environment: string,
   xAuthToken: string,
   projectId: string,
-  approveAllChanges = false,
+  approveAllChanges?: boolean,
 ): AxiosPromise => {
   const response = await axios(`https://${environment}.bloomreach.io/${PROJECTS_API_PATH}/${projectId}:merge`, {
     method: 'POST',
@@ -171,7 +173,7 @@ export const mergeDeveloperProject = async (
       'Content-Type': 'application/json',
     },
     data: {
-      approveAllChanges,
+      ...(approveAllChanges && { approveAllChanges }),
     },
   });
   return response;
@@ -183,8 +185,8 @@ export const mergeDeveloperProject = async (
 * has changes which are not part of the project. Then it pulls the latest changes from the upstream channel and pushes
 * them to the project. The result of the operation could be seen by calling the GET endpoint.
 * @category Projects Management API
-* @param {string} environment
-* @param {string} xAuthToken
+* @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+* @param {string} xAuthToken BrX API Token
 * @param {string} projectId
 * @example
 * ```ts
@@ -211,8 +213,8 @@ export const rebaseDeveloperProject = async (
 /**
 * Reopens a developer project.
 * @category Projects Management API
-* @param {string} environment
-* @param {string} xAuthToken
+* @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+* @param {string} xAuthToken BrX API Token
 * @param {string} projectId
 * @example
 * ```ts
@@ -239,8 +241,8 @@ export const reopenDeveloperProject = async (
 /**
 * Deletes a developer project.
 * @category Projects Management API
-* @param {string} environment
-* @param {string} xAuthToken
+* @param {string} environment Environment name: https://{{environment}}.bloomreach.io
+* @param {string} xAuthToken BrX API Token
 * @param {string} projectId
 * @example
 * ```ts
