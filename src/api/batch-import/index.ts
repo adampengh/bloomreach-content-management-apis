@@ -62,10 +62,12 @@ export const listImportOperations = async (
  * @category Content Batch Import API
  * @param environment
  * @param xAuthToken
+ * @param projectId
+ * @param file
  * @returns {AxiosPromise}
  * @example
 * ```ts
-* createImportJob(environment, xAuthToken)
+* createImportJob(environment, xAuthToken, 'vA1b2', file)
 *  .then(response => console.log(response.data))
 *  .catch(error => console.error(error));
 * ```
@@ -73,12 +75,22 @@ export const listImportOperations = async (
 export const createImportJob = async (
   environment: string,
   xAuthToken: string,
+  projectId: string,
+  file: File,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${IMPORT_API_PATH}/operations/`, {
-    method: 'GET',
-    headers: {
-      'x-auth-token': xAuthToken,
+  const formData = new FormData();
+  formData.append('file', file);
+
+  const response = await axios.post(
+    `https://${environment}.bloomreach.io/${IMPORT_API_PATH}/project/${projectId}`,
+    formData,
+    {
+      headers: {
+        'content-type': 'multipart/form-data',
+        'x-auth-token': xAuthToken,
+      },
     },
-  });
+  );
+
   return response;
 };
