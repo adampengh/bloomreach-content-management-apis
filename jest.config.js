@@ -10,7 +10,7 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/__tests__/'],
   passWithNoTests: true,
   preset: 'ts-jest',
-  setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
+  setupFiles: ['<rootDir>/.jest/setEnvVars.local.js'],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
     '^.+\\.(js|jsx)$': 'babel-jest',

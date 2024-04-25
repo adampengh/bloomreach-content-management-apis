@@ -95,7 +95,7 @@ export const translationLink = async (
   const response = await axios(
     `https://${environment}.bloomreach.io/${CONTENT_API_PATH}/translation/link${params}`,
     {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'x-auth-token': xAuthToken,
       },
@@ -134,11 +134,15 @@ export const translationUnlink = async (
   xAuthToken: string,
   data: Array<string>,
 ): AxiosPromise => {
+  console.log('bloomreach-content-management-api: translationUnlink data', data);
+
   const response = await axios(
     `https://${environment}.bloomreach.io/${CONTENT_API_PATH}/translation/unlink`,
     {
-      method: 'GET',
+      method: 'POST',
       headers: {
+        Accept: 'application/json',
+        'content-type': 'application/json',
         'x-auth-token': xAuthToken,
       },
       data,

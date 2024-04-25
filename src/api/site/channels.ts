@@ -49,6 +49,30 @@ export const getAllChannels = async (
 };
 
 /**
+ * Get all channel groups
+ * @category Site Management API
+ * @group Channel
+ * @param {string} environment
+ * @param {string} xAuthToken
+ * @returns
+ */
+export const getChannelGroups = async (
+  environment: string,
+  xAuthToken: string,
+): AxiosPromise => {
+  const response = await axios(
+    `https://${environment}.bloomreach.io/${CHANNEL_API_PATH}/channelgroups`,
+    {
+      method: 'GET',
+      headers: {
+        'x-auth-token': xAuthToken,
+      },
+    },
+  );
+  return response;
+};
+
+/**
  * Get channel
  * @category Site Management API
  * @group Channel
