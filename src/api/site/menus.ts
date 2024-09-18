@@ -3,8 +3,8 @@ import axios, { AxiosPromise } from 'axios';
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -27,8 +27,8 @@ export const getAllMenus = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -53,8 +53,8 @@ export const getMenu = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -85,8 +85,8 @@ export const putMenu = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -111,8 +111,8 @@ export const getMenuItems = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -143,8 +143,8 @@ export const putMenuItems = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -169,8 +169,8 @@ export const getMenuProperties = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -201,8 +201,8 @@ export const putMenuProperties = async (
 };
 
 /**
- * @category Site Management API
- * @group Menus
+ * @category Menus
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId

@@ -13,8 +13,8 @@ const CONTENT_API_PATH = 'management/content/v1';
  * variant of the bundle (the 'unpublished' variant). When requesting a bundle for core, the 'published' variant
  * is retrieved, unless there is none (the bundle has never been published yet), in which case the unpublished
  * variant is fetched.
- * @category Content Management API
- * @group Resource Bundle
+ * @category Resource Bundle
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} path Path of a resource bundle. This is the absolute path to the resource bundle,
@@ -48,8 +48,8 @@ export const getResourceBundle = async (
 
 /**
  * Create or update a resource bundle in a specific project
- * @category Content Management API
- * @group Resource Bundle
+ * @category Resource Bundle
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId Specifies the project content is added to
@@ -93,8 +93,8 @@ export const putResourceBundle = async (
 
 /**
  * Dissociate a resource bundle from a project. (The project has to be in unaccepted state.)
- * @category Content Management API
- * @group Resource Bundle
+ * @category Resource Bundle
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId Specifies the project resource bundle is dissociated to

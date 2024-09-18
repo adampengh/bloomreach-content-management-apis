@@ -10,8 +10,8 @@ const CONTENT_API_PATH = 'management/content/v1';
  * of the document (the 'unpublished' variant). When requesting a document for core, the 'published' variant is
  * retrieved, unless there is none (the page has never been published yet), in which case the unpublished
  * variant is fetched.
- * @category Content Management API
- * @group Document
+ * @category Document
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} path Path of a document. This is the absolute path to the document, including the document name
@@ -46,8 +46,8 @@ export const getDocument = async (
  * Create or update a document in a specific project.<br/>
  * The document will be created with state unpublished. To make changes available on the live website,
  * it's necessary to merge the project.
- * @category Content Management API
- * @group Document
+ * @category Document
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId Specifies the project content is added to
@@ -91,8 +91,8 @@ export const putDocument = async (
 
 /**
  * Dissociate an document from a project. (The project has to be in unaccepted state.)
- * @category Content Management API
- * @group Document
+ * @category Document
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId Specifies the project document is dissociated to

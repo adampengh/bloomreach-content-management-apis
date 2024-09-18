@@ -26,7 +26,7 @@ to https://adampengh.github.io/bloomreach-content-management-apis/modules.html
 
 ### Usage
 
-The following code snippet demonstrates how to copy a component from one environment to another
+The following code snippet demonstrates how to copy a component from one CMS environment to another
 
 ```javascript
 import { getComponent, putComponent } from 'bloomreach-content-management-apis';
@@ -35,22 +35,26 @@ const compontentGroup = 'brx-reference-spa';
 const componentName = 'referencespa-content';
 
 // Source environment variables
-const sourceEnvironment = 'test-customer';
-const sourceXAuthToken = '12345678-1234-1234-1234-123456789010';
-const sourceChannelId = 'reference-spa-v1a2B';
+const source = {
+  environment: 'test-customer',
+  xAuthToken: '12345678-1234-1234-1234-123456789010',
+  channelId: 'reference-spa-v1a2B'
+}
 
 // Target environment variables
-const targetEnvironment = 'customer';
-const targetXAuthToken = 'abcdefgh-abcd-abcd-abcd-abcdefghijkl';
-const targetChannelId = 'reference-spa-vA1b2';
+const target = {
+  environment: 'customer',
+  xAuthToken: 'abcdefgh-abcd-abcd-abcd-abcdefghijkl',
+  channelId: 'reference-spa-vA1b2'
+}
 
 /**
- * Check if component exists in Target Channel
+ * Check if component exists in Target CMS Environment/Channel
  */
 const xResourceVersion = await getComponent(
-  targetEnvironment,
-  targetXAuthToken,
-  targetChannelId,
+  target.environment,
+  target.xAuthToken,
+  target.channelId,
   componentGroup,
   componentName
 )
@@ -61,12 +65,12 @@ const xResourceVersion = await getComponent(
   .catch(error => console.error('Get Component Error', error.message))
 
 /**
- * Get component configuration from Source Channel
+ * Get component configuration from Source CMS Environment/Channel
  */
 const componentData = await getComponent(
-  sourceEnvironment,
-  sourceXAuthToken,
-  sourceChannelId,
+  source.environment,
+  source.xAuthToken,
+  source.channelId,
   componentGroup,
   componentName
 )
@@ -77,13 +81,13 @@ const componentData = await getComponent(
   .catch(error => console.error('Get Component Error', error))
 
 /**
- * Put component configuration in Target Channel
+ * Put component configuration in Target CMS Environment/Channel
  */
 if (componentData) {
   await putComponent(
-    targetEnvironment,
-    targetXAuthToken,
-    targetChannelId,
+    target.environment,
+    target.xAuthToken,
+    target.channelId,
     componentGroup,
     componentName,
     componentData,

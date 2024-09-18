@@ -1,9 +1,9 @@
 import axios, { AxiosPromise } from 'axios';
-
-const EXPORT_API_PATH = 'management/content-export/v1';
+import { CONSTANTS } from '../constants';
 
 /**
- * @category Content Batch Export API
+ *
+ * @group Content Batch Export
  * @param environment
  * @param xAuthToken
  * @param sourcePath
@@ -19,7 +19,7 @@ export const requestAnExport = async (
   projectId = 'core',
   dataTypes = ['resourcebundle', 'page', 'resourcebundle', 'folder'],
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${EXPORT_API_PATH}/`, {
+  const response = await axios(`https://${environment}.bloomreach.io/${CONSTANTS.EXPORT_API_PATH}/`, {
     method: 'POST',
     headers: {
       'x-auth-token': xAuthToken,
@@ -35,7 +35,7 @@ export const requestAnExport = async (
 };
 
 /**
- * @category Content Batch Export API
+ * @group Content Batch Export
  * @param environment
  * @param xAuthToken
  * @param operationId
@@ -45,17 +45,20 @@ export const getOperationDetails = async (
   xAuthToken: string,
   operationId: string,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${EXPORT_API_PATH}/operations/${operationId}`, {
-    method: 'GET',
-    headers: {
-      'x-auth-token': xAuthToken,
+  const response = await axios(
+    `https://${environment}.bloomreach.io/${CONSTANTS.EXPORT_API_PATH}/operations/${operationId}`,
+    {
+      method: 'GET',
+      headers: {
+        'x-auth-token': xAuthToken,
+      },
     },
-  });
+  );
   return response;
 };
 
 /**
- * @category Content Batch Export API
+ * @group Content Batch Export
  * @param environment
  * @param xAuthToken
  * @param operationId
@@ -66,7 +69,7 @@ export const downloadExportedFiles = async (
   operationId: string,
 ): AxiosPromise => {
   const response = await axios(
-    `https://${environment}.bloomreach.io/${EXPORT_API_PATH}/operations/${operationId}/files`,
+    `https://${environment}.bloomreach.io/${CONSTANTS.EXPORT_API_PATH}/operations/${operationId}/files`,
     {
       method: 'GET',
       responseType: 'arraybuffer',

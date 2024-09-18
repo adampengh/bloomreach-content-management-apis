@@ -3,8 +3,8 @@ import axios, { AxiosPromise } from 'axios';
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
 /**
- * @category Site Management API
- * @group Routes
+ * @category Routes
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -27,8 +27,8 @@ export const getAllRoutes = async (
 };
 
 /**
- * @category Site Management API
- * @group Routes
+ * @category Routes
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -53,8 +53,8 @@ export const getRoute = async (
 };
 
 /**
- * @category Site Management API
- * @group Routes
+ * @category Routes
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -85,8 +85,8 @@ export const putRoute = async (
 };
 
 /**
- * @category Site Management API
- * @group Routes
+ * @category Routes
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId

@@ -2,6 +2,12 @@ process.env.ENVIRONMENT = ''
 process.env.X_AUTH_TOKEN = ''
 
 // ================================================
+// PROJECT MANAGEMENT API TESTS
+// ================================================
+// process.env.PROJECT_NAME = ''
+// process.env.PROJECT_ID = ''
+
+// ================================================
 //  SITE MANAGEMENT API TESTS
 // ================================================
 // process.env.PROJECT_ID = ''
@@ -29,3 +35,8 @@ process.env.X_AUTH_TOKEN = ''
 // CONTENT TYPE MANAGEMENT API TESTS
 // ================================================
 // process.env.CONTENT_TYPE = ''
+
+// ================================================
+// WEBHOOK MANAGEMENT API TESTS
+// ================================================
+// process.env.WEBHOOK_CONFIGURATION_ID = ''

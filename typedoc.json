@@ -1,7 +1,28 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "theme": "default",
-  "entryPoints": ["./src/index.ts"],
+  "plugin": [
+    "typedoc-github-theme",
+    "typedoc-plugin-extras",
+  ],
+  "categorizeByGroup": false,
+  "customTitle": "Bloomreach Content Management APIs",
+  "entryPoints": [
+    "./src/index.ts"
+  ],
+  "favicon": "https://www.bloomreach.com/wp-content/uploads/2024/04/favicon.png",
+  "name": "Bloomreach Content Management APIs",
   "out": "./docs",
-  "categorizeByGroup": true
+  "footerLastModified": true,
+  "navigationLinks": {
+    "Example": "http://example.com"
+  },
+  "sidebarLinks": {
+    "Management API Docs": "https://documentation.bloomreach.com/content/reference/management-apis"
+  },
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true,
+    "includeFolders": true
+  },
+  "customFooterHtml": "Copyright <strong>@adampengh/bloomreach-content-management-apis</strong> &copy; 2024"
 }
