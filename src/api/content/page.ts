@@ -1,4 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
+import { Page } from '@/types';
 
 const CONTENT_API_PATH = 'management/content/v1';
 
@@ -7,8 +8,8 @@ const CONTENT_API_PATH = 'management/content/v1';
  * A page in core may be have changes that aren't yet published, these are stored in a separate variant of the page
  * (the 'unpublished' variant). When requesting a page for core, the 'published' variant is retrieved, unless there is
  * none (the page has never been published yet), in which case the unpublished variant is fetched.
- * @category Content Management API
- * @group Page
+ * @category Page
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} channel Specifies the channel this page is associated with
@@ -43,8 +44,8 @@ export const getPage = async (
 
 /**
  * Create or update a page in a specific project and channel
- * @category Content Management API
- * @group Page
+ * @category Page
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId Specifies the project content is added to
@@ -90,8 +91,8 @@ export const putPage = async (
 
 /**
  * Dissociate an experience page from a project. (The project has to be in unaccepted state.)
- * @category Content Management API
- * @group Page
+ * @category Page
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId Specifies the project content is dissociated to

@@ -1,10 +1,9 @@
 import axios, { AxiosPromise } from 'axios';
-
-const FOLDER_API_PATH = 'management/folder/v1';
+import { CONSTANTS } from '../constants';
 
 /**
  * Get a Folder
- * @category Folder Management API
+ * @group Folder Management
  * @param environment
  * @param xAuthToken
  * @param folderPath
@@ -16,18 +15,21 @@ export const getFolder = async (
   folderPath: string,
   depth = '5',
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${FOLDER_API_PATH}/${folderPath}?depth=${depth}`, {
-    method: 'GET',
-    headers: {
-      'x-auth-token': xAuthToken,
+  const response = await axios(
+    `https://${environment}.bloomreach.io/${CONSTANTS.FOLDER_API_PATH}/${folderPath}?depth=${depth}`,
+    {
+      method: 'GET',
+      headers: {
+        'x-auth-token': xAuthToken,
+      },
     },
-  });
+  );
   return response;
 };
 
 /**
  * Create or Update a Folder
- * @category Folder Management API
+ * @group Folder Management
  * @param environment
  * @param xAuthToken
  * @param folderType
@@ -35,6 +37,7 @@ export const getFolder = async (
  * @param displayName
  * @param [allowedDocumentTypes]
  * @param [allowedFolderTypes]
+ * @param [channel]
  */
 export const createOrUpdateFolder = async (
   environment: string,
@@ -42,10 +45,11 @@ export const createOrUpdateFolder = async (
   folderType: string,
   folderPath: string,
   displayName: string,
-  allowedDocumentTypes = ['ALL_DOCUMENTS'],
-  allowedFolderTypes = ['FOLDER'],
+  allowedDocumentTypes?: string[],
+  allowedFolderTypes?: string[],
+  channel?: string,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${FOLDER_API_PATH}/${folderPath}`, {
+  const response = await axios(`https://${environment}.bloomreach.io/${CONSTANTS.FOLDER_API_PATH}/${folderPath}`, {
     method: 'PUT',
     headers: {
       'x-auth-token': xAuthToken,
@@ -55,8 +59,9 @@ export const createOrUpdateFolder = async (
       type: folderType,
       path: folderPath,
       displayName,
-      allowedDocumentTypes,
-      allowedFolderTypes,
+      ...(allowedDocumentTypes ? { allowedDocumentTypes } : { allowedDocumentTypes: ['ALL_DOCUMENTS'] }),
+      ...(allowedFolderTypes ? { allowedFolderTypes } : { allowedFolderTypes: ['FOLDER'] }),
+      ...(channel ? { channel } : {}),
     },
   });
 
@@ -65,7 +70,7 @@ export const createOrUpdateFolder = async (
 
 /**
  * Delete a Folder
- * @category Folder Management API
+ * @group Folder Management
  * @param environment
  * @param xAuthToken
  * @param folderPath
@@ -75,7 +80,7 @@ export const deleteFolder = async (
   xAuthToken: string,
   folderPath: string,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${FOLDER_API_PATH}/${folderPath}`, {
+  const response = await axios(`https://${environment}.bloomreach.io/${CONSTANTS.FOLDER_API_PATH}/${folderPath}`, {
     method: 'DELETE',
     headers: {
       'x-auth-token': xAuthToken,
@@ -86,7 +91,7 @@ export const deleteFolder = async (
 
 /**
  * Move or Rename a Folder
- * @category Folder Management API
+ * @group Folder Management
  * @param environment
  * @param xAuthToken
  * @param folderPath
@@ -98,7 +103,7 @@ export const moveOrRenameFolder = async (
   folderPath: string,
   dstFolderPath: string,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${FOLDER_API_PATH}/move`, {
+  const response = await axios(`https://${environment}.bloomreach.io/${CONSTANTS.FOLDER_API_PATH}/move`, {
     method: 'POST',
     headers: {
       'x-auth-token': xAuthToken,

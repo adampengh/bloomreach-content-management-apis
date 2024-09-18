@@ -1,11 +1,10 @@
 import axios, { AxiosPromise } from 'axios';
-
-const IMPORT_API_PATH = 'management/content-import/v1';
+import { CONSTANTS } from '../constants';
 
 /**
  * Get operation details<br/>
  * Get the details of an operation. Useful to keep track of all the batch requests.
- * @category Content Batch Import API
+ * @group Content Batch Import
  * @param environment
  * @param xAuthToken
  * @param operationId
@@ -22,18 +21,21 @@ export const getImportOperationStatus = async (
   xAuthToken: string,
   operationId: string,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${IMPORT_API_PATH}/operations/${operationId}`, {
-    method: 'GET',
-    headers: {
-      'x-auth-token': xAuthToken,
+  const response = await axios(
+    `https://${environment}.bloomreach.io/${CONSTANTS.IMPORT_API_PATH}/operations/${operationId}`,
+    {
+      method: 'GET',
+      headers: {
+        'x-auth-token': xAuthToken,
+      },
     },
-  });
+  );
   return response;
 };
 
 /**
  * List all operations
- * @category Content Batch Import API
+ * @group Content Batch Import
  * @param environment
  * @param xAuthToken
  * @returns {AxiosPromise}
@@ -48,7 +50,7 @@ export const listImportOperations = async (
   environment: string,
   xAuthToken: string,
 ): AxiosPromise => {
-  const response = await axios(`https://${environment}.bloomreach.io/${IMPORT_API_PATH}/operations`, {
+  const response = await axios(`https://${environment}.bloomreach.io/${CONSTANTS.IMPORT_API_PATH}/operations`, {
     method: 'GET',
     headers: {
       'x-auth-token': xAuthToken,
@@ -59,7 +61,7 @@ export const listImportOperations = async (
 
 /**
  * Create content (documents and pages) in a specific project.
- * @category Content Batch Import API
+ * @group Content Batch Import
  * @param environment
  * @param xAuthToken
  * @param projectId
@@ -82,7 +84,7 @@ export const createImportJob = async (
   formData.append('file', file);
 
   const response = await axios.post(
-    `https://${environment}.bloomreach.io/${IMPORT_API_PATH}/project/${projectId}`,
+    `https://${environment}.bloomreach.io/${CONSTANTS.IMPORT_API_PATH}/project/${projectId}`,
     formData,
     {
       headers: {

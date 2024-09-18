@@ -11,8 +11,8 @@ const CONTENT_API_PATH = 'management/content/v1';
  * are based on the relative path of the content. The relative content path is looked up in the other channels of
  * the same channel group. If any content items in the other channels match the given relative path,
  * then they are proposed as translation suggestions.
- * @category Content Management API
- * @group Translations
+ * @category Translations
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} path Path of the content. This is the absolute path to the content, including the content name
@@ -61,8 +61,8 @@ export const getTranslations = async (
 
 /**
  * Links the given source and target content as translations of each other.
- * @category Content Management API
- * @group Translations
+ * @category Translations
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {object} data
@@ -111,8 +111,8 @@ export const translationLink = async (
  * For the given content:<br/>
  *   • Content must be part of a translation group<br/>
  *   • Content must be under the folder '/content/documents'
- * @category Content Management API
- * @group Translations
+ * @category Translations
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {Array<string>} data
@@ -155,8 +155,8 @@ export const translationUnlink = async (
  * Get the status of a link/unlink operation
  * Get the status of a link/unlink operation which shows information such as operation result,
  * number of processed content items, number of failed operations, start time, end time, and error logs.
- * @category Content Management API
- * @group Translations
+ * @category Translations
+ * @group Content Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} operationId

@@ -4,7 +4,7 @@ const CONTENT_TYPE_API_PATH = 'management/contenttypes/v1';
 
 /**
  * Get All Content Types
- * @category Content Type Management API
+ * @group Content Type Management
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} [projectId] 'core' or 'development'
@@ -31,7 +31,7 @@ export const getAllContentTypes = async (
 
 /**
  * Get a Content Type
- * @category Content Type Management API
+ * @group Content Type Management
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} contentTypeName
@@ -64,7 +64,7 @@ export const getContentType = async (
 
 /**
  * Create or Update a Content Type
- * @category Content Type Management API
+ * @group Content Type Management
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} contentTypeName
@@ -101,7 +101,7 @@ export const putContentType = async (
 
 /**
  * Delete a Content Type
- * @category Content Type Management API
+ * @group Content Type Management
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} contentTypeName
@@ -130,7 +130,7 @@ export const deleteContentType = async (
 
 /**
  * Rename a Content Type
- * @category Content Type Management API
+ * @group Content Type Management
  * @param {string} environment
  * @param {string} xAuthToken
  * @param {string} contentTypeName

@@ -4,7 +4,7 @@ const PROJECTS_API_PATH = 'management/projects/v1';
 
 /**
  * Gets All Developer Projects
- * @category Projects Management API
+ * @group Projects Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} [withSubresources]
@@ -34,7 +34,7 @@ export const getAllProjects = async (
 
 /**
  * Gets a Developer Project by Project ID
- * @category Projects Management API
+ * @group Projects Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId
@@ -66,7 +66,7 @@ export const getDeveloperProject = async (
 
 /**
  * Creates a Developer Project
- * @category Projects Management API
+ * @group Projects Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} name
@@ -103,7 +103,7 @@ export const createDeveloperProject = async (
 
 /**
  * Updates a Developer Project
- * @category Projects Management API
+ * @group Projects Management
  * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
  * @param {string} xAuthToken BrX API Token
  * @param {string} projectId
@@ -148,7 +148,7 @@ export const updateDeveloperProject = async (
 * then the operation can be tried again after resolving the conflicts manually. The result of the operation could be
 * seen by calling the GET endpoint.<br/>
 * Only users with 'Site Admin' role can run the merge operation.
-* @category Projects Management API
+* @group Projects Management
 * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
 * @param {string} xAuthToken BrX API Token
 * @param {string} projectId
@@ -184,7 +184,7 @@ export const mergeDeveloperProject = async (
 * This operation runs ansynchronously and rebases the channels. Rebase operation checks whether the upstream channel
 * has changes which are not part of the project. Then it pulls the latest changes from the upstream channel and pushes
 * them to the project. The result of the operation could be seen by calling the GET endpoint.
-* @category Projects Management API
+* @group Projects Management
 * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
 * @param {string} xAuthToken BrX API Token
 * @param {string} projectId
@@ -212,7 +212,7 @@ export const rebaseDeveloperProject = async (
 
 /**
 * Reopens a developer project.
-* @category Projects Management API
+* @group Projects Management
 * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
 * @param {string} xAuthToken BrX API Token
 * @param {string} projectId
@@ -240,7 +240,7 @@ export const reopenDeveloperProject = async (
 
 /**
 * Deletes a developer project.
-* @category Projects Management API
+* @group Projects Management
 * @param {string} environment Environment name: https://{{environment}}.bloomreach.io
 * @param {string} xAuthToken BrX API Token
 * @param {string} projectId

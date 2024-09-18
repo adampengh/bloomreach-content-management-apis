@@ -3,8 +3,8 @@ import axios, { AxiosPromise } from 'axios';
 const SITE_MANAGEMENT_API_PATH = 'management/site/v1';
 
 /**
- * @category Site Management API
- * @group Layouts
+ * @category Layouts
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -27,8 +27,8 @@ export const getAllLayouts = async (
 };
 
 /**
- * @category Site Management API
- * @group Layouts
+ * @category Layouts
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -53,8 +53,8 @@ export const getLayout = async (
 };
 
 /**
- * @category Site Management API
- * @group Layouts
+ * @category Layouts
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
@@ -85,8 +85,8 @@ export const putLayout = async (
 };
 
 /**
- * @category Site Management API
- * @group Layouts
+ * @category Layouts
+ * @group Site Management
  * @param environment
  * @param xAuthToken
  * @param channelId
